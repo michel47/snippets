@@ -7,11 +7,11 @@ keywords: "bindir, code, perl, modules, lib, dependencies"
 date: "Thu Apr  9 16:40:57 CEST 2020"
 hdate: "{{HDATE}}"
 ring: code5
-QM: QmbAsLuKZRHzg8ncNchT2FfxkbdPRUb2F4sRWtpTGJokTB
-QMID: QmbAsLu
+qm: QmbAsLuKZRHzg8ncNchT2FfxkbdPRUb2F4sRWtpTGJokTB
+qmid: QmbAsLu
 ---
-{% assign QM = page.QM %}
-{% assign QMID = page.QMID %}
+{% assign QM = page.qm %}
+{% assign QMID = page.qmid %}
 ## today's snippet: [bindir](https://cloudflare-ipfs.com/ipfs/{{QM}}) code ([#{{QMID}}][snip])
 
 In order to make sure all dependencies are taking care automagically
