@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+--- 
+font-readable: Josefin Slab
+css: style.css
+---
+-->
+<!--
+font-readable: Josefin Slab
+font-readable: Special Elite
+font-readable: Open Sans
+font-readable: Georgia
+font-readable: Garamond
+font-readable: Calendas Plus
+font-readable: Henry
+font-readable: Work Sans
+font-readable: Fenix STD
+font-readable: Roboto
+font-readable: Lato
+font-readable: IBM Plex Sans
+-->
+<head>
+<meta charset="utf8"/>
+<title>code snippet #Qmb3jk6 ~ michelc@gc-bank.org @ Thu, 09 Apr 2020 13:45:57 GMT</title>
+<style>
+body {
+  /*
+  background-image: URL(https://cdn.statically.io/img/cloudflare-ipfs.com/ipfs/uAXAAMhIsChgBcBEUzPvn8Gy2Eccbr33FZCdM4bCShHISDGZhbGxiYWNrLnBuZxjY-AMKAggB/fallback.png);
+   */
+  background-image: linear-gradient(to right, white,lightblue);
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed;
+  background-position: bottom right, center;
+  font-family: Verdana;
+}
+div {
+ font-family: Josefin Slab;
+ margin: auto;
+ padding: 1em;
+ text-align: justify;
+}
+img { max-height: 720px; }
+</style>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin Slab">
+<link href="style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div class="fist content">
+<h1>code snippet #Qmb3jk6<br><small>coding our way up to consciousness</small></h1>
+solving dependencies and modules call in perl
+</div>
+<hr>
+<div class="content">
+<h2 id="todays-snippet-bindir-code-qmb3jk6snip">today's snippet: <a href="https://cloudflare-ipfs.com/ipfs/Qmb3jk6WsoH9JC6pbqsx4JJS3Ej6FWumVFkDG7Na3QMPaw">bindir</a> code (<a href="https://qwant.com/?q=%26g+%23Qmb3jk6">#Qmb3jk6</a>)</h2>
+<p>In order to make sure all dependencies are taking care automagically within my perl scripts, I now load the library next to the source : ../lib</p>
+<p>here is the piece of code that help achieve this :</p>
+<p><code>use lib &quot;$bindir/../lib&quot;</code></p>
+<p>where $bindir is defined in a BEGIN block as :</p>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">BEGIN</span> {
+  my<span class="dt">$p</span>=<span class="fu">rindex</span>(<span class="dt">$0</span>,<span class="kw">&#39;</span><span class="st">/</span><span class="kw">&#39;</span>,<span class="fu">length</span>(<span class="dt">$0</span>)-<span class="dv">8</span>);our<span class="dt">$bindir</span>=(<span class="dt">$p</span>&gt;<span class="dv">0</span>)?<span class="fu">substr</span>(<span class="dt">$0</span>,<span class="dv">0</span>,<span class="dt">$p</span>):<span class="kw">&#39;</span><span class="st">.</span><span class="kw">&#39;</span>;
+}</code></pre></div>
+<p>note: the rindex function doesn't accept negative position, hence the call to length().</p>
+<!--
+ $qm: Qmb3jk6WsoH9JC6pbqsx4JJS3Ej6FWumVFkDG7Na3QMPaw$
+ -->
+</div>
+<hr>
+bindir, code, perl, modules, lib, dependencies
+</body>
+

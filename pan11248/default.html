@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+--- 
+font-readable: Josefin Slab
+css: style.css
+---
+-->
+<!--
+font-readable: Josefin Slab
+font-readable: Special Elite
+font-readable: Open Sans
+font-readable: Georgia
+font-readable: Garamond
+font-readable: Calendas Plus
+font-readable: Henry
+font-readable: Work Sans
+font-readable: Fenix STD
+font-readable: Roboto
+font-readable: Lato
+font-readable: IBM Plex Sans
+-->
+<head>
+<meta charset="utf8"/>
+<title>$title$ ~ $author$ @ $date$</title>
+<style>
+body {
+  background-image: linear-gradient(to right, white,lightblue);
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed;
+  background-position: bottom right, center;
+  font-family: Verdana;
+}
+div {
+ font-family: {{font-readable}};
+ margin: auto;
+ padding: 1em;
+ text-align: justify;
+}
+img { max-height: 720px; }
+</style>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family={{font-readable}}">
+<link href="{{css}}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div class="fist content">
+<h1>$title$<br><small>$subtitle$</small></h1>
+$abstract$
+</div>$if(thumbnail)$<div style="display:none;"><img src="$thumbnail$" alt="$title$"></div>$endif$
+<hr>
+<div class="content">
+$body$
+</div>
+<hr>
+$keywords$
+</body>
+

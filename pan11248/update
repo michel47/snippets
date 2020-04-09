@@ -1,0 +1,11 @@
+#
+
+qmset=$(ipfs add -Q -w default.html style.css)
+echo qmset: $qmset
+prog=$(which pan)
+sed -i -e "s/qmset='.*'/qmset='$qmset'/" $prog
+if test -e pan; then
+  sed -i -e "s/qmset='.*'/qmset='$qmset'/" pan
+fi
+qm=$(ipfs add -Q -w update $prog default.html style.css)
+echo url: https://ipfs.blockringtm.ml/ipfs/$qm
