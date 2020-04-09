@@ -8,6 +8,8 @@ date: "Thu Apr  9 16:40:57 CEST 2020"
 hdate: "{{HDATE}}"
 ring: code5
 ---
+{% assign QM = "{{QM}}" %}
+{% assign QMID = "{{QMID}}" %}
 ## today's snippet: [bindir](https://cloudflare-ipfs.com/ipfs/{{QM}}) code ([#{{QMID}}][snip])
 
 In order to make sure all dependencies are taking care automagically
