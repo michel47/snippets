@@ -1,7 +1,7 @@
 #
 
 # publish a note ...
-qmset='QmNURvPajDwACbWc9wUn2a9F8cgcR1SxZAyQYMf8AvkSer'
+qmset='QmX9Qkdj5PmmzpHtdEHeiGHBiKBKmQzZXRjB9ivMyf5X8p'
 dir=pan11248;
 if ! test -d $dir; then
 ipfs get $qmset -o $dir
