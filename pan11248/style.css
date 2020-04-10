@@ -8,6 +8,13 @@ body {
  background-size: auto 100%;
 
 }
+.first {
+ /*
+ */
+ background-color: rgba(12,25,28,0.80);
+ color: white;
+ 
+}
 pre {
  background-color: lightgray;
  overflow: auto;

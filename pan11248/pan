@@ -1,15 +1,13 @@
 #
 
 # publish a note ...
-qmset='QmX9Qkdj5PmmzpHtdEHeiGHBiKBKmQzZXRjB9ivMyf5X8p'
+qmset='QmZkPjvYBxgNZeKCXZxFj5GBrSB7TUfNDHL8FnnzQXYWDU'
 dir=pan11248;
 if ! test -d $dir; then
 ipfs get $qmset -o $dir
 fi
 cp -p $0 $dir/pan
-if test -d .git; then
-git add $dir/pan
-fi
+if test -d .git; then git add $dir/pan; fi
 
 file="$1"
 bname=${file%.*}

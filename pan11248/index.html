@@ -21,7 +21,9 @@ font-readable: IBM Plex Sans
 -->
 <head>
 <meta charset="utf8"/>
-<title>code snippet #QmbZrho ~ michelc@gc-bank.org @ Thu, 09 Apr 2020 14:49:22 GMT</title>
+<title>code snippet #QmckYSe ~ michelc@gc-bank.org @ Fri, 10 Apr 2020 13:40:58 GMT</title>
+<meta name="description" content="holoRing: coding the next generation blockchains. Today's: ipfs cat of hash passed as fragment; #code5: coding in html5" />
+<meta name="keywords" content="ipfs, hash, cat, javascript, fragment" />
 <style>
 body {
   background-image: linear-gradient(to right, white,lightblue);
@@ -30,38 +32,91 @@ body {
   background-position: bottom right, center;
   font-family: Verdana;
 }
+.subtitle { font-size: 0.5em; }
 div {
  font-family: Josefin Slab;
  margin: auto;
  padding: 1em;
  text-align: justify;
 }
-img { max-height: 720px; }
+img { max-height: 720px; padding: 1.2rem; }
+.first img { float: left; max-height: 120px !important; }
+#preview { position: fixed; float: bottom }
+#preview img { display:none }
+#thmb {
+ max-width: 50%;
+}
 </style>
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin Slab">
 <link href="style.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
-<div class="fist content">
-<h1>code snippet #QmbZrho<br><small>coding our way up to consciousness</small></h1>
-solving dependencies and modules call in perl
+<div id="preview"><img src="thmb.jpg" alt="code snippet #QmckYSe"/></div>
+<div class="first content">
+<img id=logo src=https://cdn.statically.io/img/ipfs.blockringtm.ml/ipfs/Z5wZ9oUSpsyhALkySLMTefDHVXYgTSY8nAPCx3vxLRgKnRrdyUyd34WAKjVe2pbLGSHvfZ/code5.png>
+<h1>
+code snippet #QmckYSe<br><small class=subtitle><i>holoRing: coding the next generation blockchains</i></small></h1>
+ipfs cat of hash passed as fragment
 </div>
-<hr>
+<br>
 <div class="content">
-<h2 id="todays-snippet-bindir-code-qmbzrhosnip">today's snippet: <a href="https://cloudflare-ipfs.com/ipfs/QmbZrhoRwuVSoC2hj2aDspW1zazbyoKwJ2fGLXBeDgutm3">bindir</a> code (<a href="https://qwant.com/?q=%26g+%23QmbZrho">#QmbZrho</a>)</h2>
-<p>In order to make sure all dependencies are taking care automagically within my perl scripts, I now load the library next to the source : ../lib</p>
-<p>here is the piece of code that help achieve this :</p>
-<p><code>use lib &quot;$bindir/../lib&quot;</code></p>
-<p>where $bindir is defined in a BEGIN block as :</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">BEGIN</span> {
-  my<span class="dt">$p</span>=<span class="fu">rindex</span>(<span class="dt">$0</span>,<span class="kw">&#39;</span><span class="st">/</span><span class="kw">&#39;</span>,<span class="fu">length</span>(<span class="dt">$0</span>)-<span class="dv">8</span>);our<span class="dt">$bindir</span>=(<span class="dt">$p</span>&gt;<span class="dv">0</span>)?<span class="fu">substr</span>(<span class="dt">$0</span>,<span class="dv">0</span>,<span class="dt">$p</span>):<span class="kw">&#39;</span><span class="st">.</span><span class="kw">&#39;</span>;
-}</code></pre></div>
-<p>note: the rindex function doesn't accept negative position, hence the call to length().</p>
+<img style="float:right" id="thmb" src="thmb.jpg" alt="code snippet #QmckYSe"/>
 <!--
- $qm: QmbZrhoRwuVSoC2hj2aDspW1zazbyoKwJ2fGLXBeDgutm3$
+{% assign code = page.code %}
+{% assign QM = page.qm %}
+{% assign QMID = page.qmid | truncate: 7 %}
+-->
+<h2 id="todays-snippet-ipfscatcode-code-qmckysesnip">today's snippet: <a href="https://cloudflare-ipfs.com/ipfs/QmckYSecDtMcJVXJjgPDriJP3SaPSp9RNTzhqXTWM1o75d">ipfscat</a> code (<a href="https://qwant.com/?q=%26g+%23QmckYSe">#QmckYSe</a>)</h2>
+<p><a href="https://qwant.com/?q=IPFS+Interplanetary+File+System">IPFS</a> files are stored at <a href="https://ipfs.blockringtm.ml/ipfs/QmaRV1gdTgtR5Y7uM3sc9ZcgxMq66kyHi2ojLw6yXsGDRL#/ipfs/QmckYSecDtMcJVXJjgPDriJP3SaPSp9RNTzhqXTWM1o75d">addresse</a> by their content using a hash function like <a href="https://qwant.com/?q=&amp;26+SHA256">SHA256</a>.</p>
+<p>With a little of javascript we have a simple way to get to view the file content within a div this is neat for serverless websites, that pull data from ipfs.</p>
+<p>The piece of <a href="https://cloudflare-ipfs.com/ipfs/QmckYSecDtMcJVXJjgPDriJP3SaPSp9RNTzhqXTWM1o75d">code</a> below takes the hash from the #fragment in the url and recover the file or directory if it is a file it simply replaces the current &lt;div&gt; with the content (in a &amp;ltpre&gt; tag).</p>
+<p>example; the script an be view at this URL: <br><a href="https://ipfs.blockringtm.ml/ipfs/QmaRV1gdTgtR5Y7uM3sc9ZcgxMq66kyHi2ojLw6yXsGDRL#/ipfs/QmUearm8LdCy3GuLy28w1NXX8ypBXP8HhZvLb5F4EjjzBb">https://gateway.ipfs.io/ipfs/QmaRV1gdTgtR5Y7uM3sc9ZcgxMq66kyHi2ojLw6yXsGDRL#/ipfs/QmUearm8LdCy3GuLy28w1NXX8ypBXP8HhZvLb5F4EjjzBb</a></p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// get fragment ...</span>
+<span class="kw">var</span> fragment <span class="op">=</span> <span class="va">window</span>.<span class="va">location</span>.<span class="va">hash</span>.<span class="at">slice</span>(<span class="dv">1</span>)
+<span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;fragment: &#39;</span><span class="op">+</span>fragment)
+<span class="kw">var</span> thisscript <span class="op">=</span> <span class="va">document</span>.<span class="at">currentScript</span><span class="op">;</span>
+<span class="kw">var</span> caller <span class="op">=</span> <span class="va">thisscript</span>.<span class="at">parentNode</span><span class="op">;</span>
+
+<span class="co">// anonymous functions ...</span>
+<span class="kw">const</span> status <span class="op">=</span> resp <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="cf">if</span> (<span class="va">resp</span>.<span class="at">status</span> <span class="op">&gt;=</span> <span class="dv">200</span> <span class="op">&amp;&amp;</span> <span class="va">resp</span>.<span class="at">status</span> <span class="op">&lt;</span> <span class="dv">300</span>) <span class="op">{</span>
+    <span class="cf">return</span> <span class="va">Promise</span>.<span class="at">resolve</span>(resp)
+  <span class="op">}</span>
+  <span class="cf">return</span> <span class="va">Promise</span>.<span class="at">reject</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="va">resp</span>.<span class="at">statusText</span>))
+<span class="op">}</span>
+<span class="kw">const</span> error <span class="op">=</span> e <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;catch: &#39;</span><span class="op">+</span>e)<span class="op">;</span>
+
+<span class="kw">var</span> apiurl<span class="op">=</span><span class="st">&#39;http://127.0.0.1:5001/api/v0/files/stat?arg=&#39;</span><span class="op">+</span>fragment<span class="op">+</span><span class="st">&#39;&amp;hash=true&#39;</span>
+<span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;apiurl: &#39;</span><span class="op">+</span>apiurl)
+<span class="at">fetch</span>(apiurl)
+.<span class="at">then</span>(status)
+.<span class="at">then</span>((resp) <span class="op">=&gt;</span> <span class="va">resp</span>.<span class="at">json</span>()) <span class="co">// Transform the data into json</span>
+.<span class="at">then</span>(<span class="kw">function</span>(obj) <span class="op">{</span>
+  <span class="kw">var</span> hash <span class="op">=</span> <span class="va">obj</span>.<span class="at">Hash</span><span class="op">;</span>
+  <span class="kw">var</span> type <span class="op">=</span> <span class="va">obj</span>.<span class="at">Type</span><span class="op">;</span>
+  <span class="va">console</span>.<span class="at">log</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(obj))<span class="op">;</span>
+  <span class="co">//console.log(&#39;hash: &#39;+hash) )</span>
+  <span class="cf">if</span> (type <span class="op">==</span> <span class="st">&#39;directory&#39;</span>) <span class="op">{</span>
+   <span class="va">window</span>.<span class="va">location</span>.<span class="at">href</span><span class="op">=</span><span class="st">&#39;http://127.0.0.1:8080/ipfs/&#39;</span> <span class="op">+</span> hash<span class="op">;</span>
+  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (type <span class="op">==</span> <span class="st">&#39;file&#39;</span>) <span class="op">{</span>
+<span class="co">// get content of ipfs file</span>
+<span class="co">// substitute this div ...</span>
+    <span class="at">fetch</span>(<span class="st">&#39;http://127.0.0.1:8080/ipfs/&#39;</span><span class="op">+</span>hash)
+    .<span class="at">then</span>( resp <span class="op">=&gt;</span> <span class="va">resp</span>.<span class="at">text</span>()) <span class="co">// Transform the data into text</span>
+    .<span class="at">then</span>( data <span class="op">=&gt;</span> <span class="va">caller</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;&lt;pre&gt;&#39;</span><span class="op">+</span>data<span class="op">+</span><span class="st">&#39;&lt;/pre&gt;&#39;</span> )
+    .<span class="at">catch</span>(error)
+  <span class="op">}</span>
+<span class="op">}</span>)
+.<span class="at">catch</span>(error)</code></pre></div>
+<p>note: we use the parentNode attribute of the script to know which div to update, such that the resulting html has no &quot;trace&quot; of the script :)</p>
+<!--
+ $qm: QmckYSecDtMcJVXJjgPDriJP3SaPSp9RNTzhqXTWM1o75d$
  -->
 </div>
 <hr>
-bindir, code, perl, modules, lib, dependencies
+ipfs, hash, cat, javascript, fragment
 </body>
 
+<script src=effect.js type="text/javascript">
+ alert("ahah this code is not executed !")
+</script>
