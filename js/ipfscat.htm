@@ -1,0 +1,46 @@
+<html>
+<!-- This js do an ipfs cat of the "/ipfs/mhash" passed as a fragment -->
+<meta charset="utf8"/>
+<div id=content>
+<script>
+// get fragment ...
+var fragment = window.location.hash.slice(1)
+console.log('fragment: '+fragment)
+var thisscript = document.currentScript;
+var caller = thisscript.parentNode;
+
+// anonymous functions ...
+const status = resp => {
+  if (resp.status >= 200 && resp.status < 300) {
+    return Promise.resolve(resp)
+  }
+  return Promise.reject(new Error(resp.statusText))
+}
+const error = e => console.log('catch: '+e);
+
+var apiurl='http://127.0.0.1:5001/api/v0/files/stat?arg='+fragment+'&hash=true'
+console.log('apiurl: '+apiurl)
+fetch(apiurl)
+.then(status)
+.then((resp) => resp.json()) // Transform the data into json
+.then(function(obj) {
+  var hash = obj.Hash;
+  var type = obj.Type;
+  console.log(obj);
+  //console.log('hash: '+hash) )
+  if (type == 'directory') {
+   window.location.href='http://127.0.0.1:8080/ipfs/' + hash;
+  } else if (type == 'file') {
+// get content of ipfs file
+// substitute this div ...
+    fetch('http://127.0.0.1:8080/ipfs/'+hash)
+    .then( resp => resp.text()) // Transform the data into text
+    .then( data => { caller.innerHTML = '<pre>'+data+'</pre>' } )
+    .catch(error)
+  }
+})
+.catch(error)
+</script>
+
+</div>
+</html>
