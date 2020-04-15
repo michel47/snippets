@@ -8,7 +8,6 @@ var api_url = 'http://127.0.0.1:5001/api/v0/'
 function query2json(q) {
   let j = {}
   q.split('&').forEach( p => { let [k,v] = p.split('='); j[k] = v })
-  console.log(j)
   return j
 }
 
