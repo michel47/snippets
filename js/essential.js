@@ -1,5 +1,9 @@
 // some useful js functions...
 
+if (typeof(api_url) == 'undefined') {
+var api_url = 'http://127.0.0.1:5001/api/v0/'
+
+}
 
 function query2json(q) {
   let j = {}
@@ -80,12 +84,19 @@ function fetchGetText(url) {
 }
 
 function fetchGetJson(url) {
-     console.log('fetchGetJson input url '+url)
+     console.log('fetchGetJson.url: '+url)
      return fetch(url,{ method: "GET"} )
    .then(validate)
    .then( resp => resp.json() )
 }
 
+function getPeerId() {
+     let url = api_url + 'config?&arg=Identity.PeerID&encoding=json';
+     return fetch(url,{ method: "GET"} )
+     .then( resp => resp.json() )
+     .then( obj => { return obj.Value })
+     .catch(logError)
+}
 
 function getIp() {
  // let url = 'https://postman-echo.com/ip'
@@ -107,6 +118,57 @@ function getIp() {
   } )
  .catch( logError )
 }
+
+function getTic() {
+   var dat = new Date();
+   var result = Math.floor(dat.getTime() / 1000);
+   return +result
+}
+
+function getSpot(tic, ip, peerId, nonce) {
+     var ipInt = dot2Int(ip);
+     var idInt = qm2Int(peerId);
+     var spot = (tic ^ +ipInt ^ idInt ^ nonce)>>>0;
+     
+     var result = "--- # spot for "+peeId+"\n";
+     result += "tic: "+tic+"\n";
+     result += "ip: "+ipInt+"\n";
+     result += "spot: "+spot+"\n";
+     
+     return result;
+} 
+
+
+function dot2Int(dot) {
+    let d = dot.split('.');
+    return ((((((+d[0])*256)+(+d[1]))*256)+(+d[2]))*256)+(+d[3]);
+}
+
+function qm2Int(qm) {
+  plain = base58.decode(qm)
+  let q16 = plain.to_hex();
+  console.log('f'+q16)
+  let d = q16.split('.');
+  console.log('d: '+d)
+  return ((((((+d[0])*256)+(+d[1]))*256)+(+d[2]))*256)+(+d[3]);
+}
+function to_hex(s) {
+    var r = '';
+    for (var i = 0; i < s.length; i++) {
+        var v;
+        if (s[i] < 0)
+            s[i] += 256;
+        v = s[i].toString(16);
+        if (v.length == 1)
+            v = '0' + v;
+        r += v;
+    }
+    return r;
+}
+
+
+
+
 
 
 function validate(resp) {
