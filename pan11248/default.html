@@ -49,9 +49,17 @@ img { max-height: 720px; padding: 1.2rem; }
 </style>
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family={{font-readable}}">
 <link href="{{css}}" rel="stylesheet" type="text/css" media="all">
+<link rel="image_src" href="$preview$" />
+<!-- FB open-graph -->
+<meta property="og:title" content="$title$" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="$preview$" />
+<meta property="og:url" content="https://ipfs.blockring™.com/ipfs/$qm$" />
+<meta property="og:site_name" content="$name$" />
+<meta property="og:admins" content="$admins$" />
 </head>
 <body>
-<div id="preview">$if(preview)$<img src="$preview$" alt="$title$"/>$endif$</div>
+<div id="preview">$if(preview)$<img property="og:image" src="$preview$" alt="$title$"/>$endif$</div>
 <div class="first content">
 <img id=logo src=https://cdn.statically.io/img/ipfs.blockringtm.ml/ipfs/Z5wZ9oUSpsyhALkySLMTefDHVXYgTSY8nAPCx3vxLRgKnRrdyUyd34WAKjVe2pbLGSHvfZ/code5.png>
 <h1>
