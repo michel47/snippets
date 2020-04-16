@@ -74,13 +74,14 @@ function fetchPostText(url, content) {
      let form = new FormData();
      form.append('file', content)
      return fetch(url, { method: "POST", mode: 'cors', body: form })
+}
 
 function fetchPostJson(url, obj) {
      let content = JSON.stringify(obj)
      let form = new FormData();
      form.append('file', content)
      return fetch(url, { method: "POST", mode: 'cors', body: form })
- }
+}
 
 function fetchGetText(url) {
    return fetch(url, { method: "GET"} )
