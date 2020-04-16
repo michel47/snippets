@@ -1,10 +1,5 @@
 // some useful js functions...
 
-if (typeof(api_url) == 'undefined') {
-var api_url = 'http://127.0.0.1:5001/api/v0/'
-
-}
-
 function query2json(q) {
   let j = {}
   q.split('&').forEach( p => { let [k,v] = p.split('='); j[k] = v })
@@ -94,14 +89,6 @@ function fetchGetJson(url) {
      return fetch(url,{ method: "GET"} )
    .then(validate)
    .then( resp => resp.json() )
-}
-
-function getPeerId() {
-     let url = api_url + 'config?&arg=Identity.PeerID&encoding=json';
-     return fetch(url,{ method: "GET"} )
-     .then( resp => resp.json() )
-     .then( obj => { return obj.Value })
-     .catch(logError)
 }
 
 function getIp() {
