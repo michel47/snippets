@@ -1,4 +1,44 @@
 // some useful js functions...
+//
+
+function load(e) {
+    console.log('load: ',e); 
+    return new Promise(function(resolve, reject) {
+        e.onload = resolve
+        e.onerror = reject
+    });
+}
+function readAsText(file) {
+    return new Promise(function(resolve, reject) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            resolve(reader.result);
+        }
+        reader.onerror = reject;
+        reader.readAsText(file);
+    });
+}
+function readAsBinaryString(file) {
+    return new Promise(function(resolve, reject) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            resolve(reader.result);
+        }
+        reader.onerror = reject;
+        reader.readAsBinaryString(file)
+    });
+}
+function readAsDataURL(file) {
+    return new Promise(function(resolve, reject) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            resolve(reader.result);
+        }
+        reader.onerror = reject;
+        reader.readAsDataURL(file)
+    });
+}
+
 
 function query2json(q) {
   let j = {}
@@ -45,7 +85,7 @@ function getCfIp() {
    let url = 'https://www.cloudflare.com/cdn-cgi/trace'
    return fetch(url)
    .then( resp => resp.text() )
-   .then ( d => { return log2json(d) } )
+   .then ( d => { return list2json(d) } )
    .then( json => {
      if (typeof(json.ip) != 'undefined') {
         return json.ip
@@ -58,7 +98,7 @@ function getCfIp() {
    } )
    .catch( logError )
 }
-function log2json(d) {
+function list2json(d) {
   let data = d.replace(/[\r\n]+/g, '","').replace(/\=+/g, '":"');
       data = '{"' + data.slice(0, data.lastIndexOf('","')) + '"}';
   let json = JSON.parse(data);
