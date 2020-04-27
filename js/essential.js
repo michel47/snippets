@@ -1,8 +1,9 @@
 // some useful js functions...
 //
+console.log('essential.js: 1.1')
 
 function load(e) {
-    console.log('load: ',e); 
+    //console.log('load: ',e); 
     return new Promise(function(resolve, reject) {
         e.onload = resolve
         e.onerror = reject
@@ -103,6 +104,12 @@ function list2json(d) {
       data = '{"' + data.slice(0, data.lastIndexOf('","')) + '"}';
   let json = JSON.parse(data);
   return json
+}
+
+function fetchPostBinary(url, content) {
+     let form = new FormData();
+     form.append('file', content)
+     return fetch(url, { method: "POST", mode: 'cors', body: form })
 }
 
 function fetchPostText(url, content) {
@@ -213,7 +220,7 @@ function validate(resp) {
   }
 }
 
-function consLog(data) { console.log('info:',data); return data; }
+function consLog(what) { return data => { console.log(what+': ',data); return data; } }
 function logError(err) { console.error(err); }
 
 true; // $Source:  /my/js/scripts/essential.js$
