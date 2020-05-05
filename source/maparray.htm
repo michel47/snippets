@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- title:
+How to use a map method on form elements
+-->
+
+<form name=form1 method=none>
+firstname: <input name=lastn value="a" type=text>
+<br>lastname: <input name=firstn value="b" type=text>
+<br>zipcode: <input name=zip value="c" type=text>
+<br>ip: <input name=ip value="127.0.0.1" type=text disabled>
+<br><input onclick="process(this.parentNode)" name=button type=button value="register">
+</form>
+
+<script>
+
+function process(form) {
+  console.dir(form)
+  var inputs = [...form.elements]
+  console.log('inputs: ',inputs);
+  console.log('in: '+JSON.stringify(inputs));
+  for (let i = 0; i < inputs.length; i++) {
+    console.log(i+':'+inputs[i].name+': '+inputs[i].value);
+  }
+  let list = Object.values(inputs)
+  console.log('list: ',list)
+  let names = inputs.map( e => e.name )
+  
+  console.log(names)
+  
+}
+</script>

@@ -107,9 +107,11 @@ function list2json(d) {
 }
 
 function fetchPostBinary(url, content) {
-     let form = new FormData();
+     let form = new FormData(); // need encodeURI ... ??
+     //console.log('fetchPostBinary: '+url,content)
      form.append('file', content)
      return fetch(url, { method: "POST", mode: 'cors', body: form })
+     .then(consLog('fetchPostBinary.resp: '))
 }
 
 function fetchPostText(url, content) {

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div><h3>js code:</h3><pre><code id=code></code></pre></div>
+<hr>
+<div id=result></div>
+<script>
+let ipfs_path = '/ipfs/QmSYQqCHX9LBbvfY86oBQGjCPpok4EAjPxUy7wrCWn8tuV';
+let url = 'http://127.0.0.1:5001/api/v0/file/ls?arg='+ipfs_path;
+console.log('url:'+url);
+
+ fetch(url, { method: "POST", mode: 'cors'})
+     .then (resp => {return resp.json()})
+     .then (readObj)
+
+function readObj(json) {
+  console.dir(json);
+  let hash = json.Arguments[ipfs_path]
+  console.log('hash: ',hash)
+  let links = json.Objects[hash].Links
+  let names = links.map ( e => e.Name )
+  console.log(names)
+  let buf = links.map(
+     file => {
+     return '// file :<br>name: '+file.Name
+        +'<br>hash: '+file.Hash
+        + '<br>size: '+file.Size
+        +'<br>.<br>'; } ).join("\n")
+  document.getElementById('result').innerHTML = buf;
+  document.getElementById('code').innerHTML = document.getElementsByTagName('script')[0].innerHTML;
+  
+}
+</script>

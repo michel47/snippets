@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<div class="content"><form action="http://localhost:8088/cgi-bin/register.pl" method="post">
+
+
+<hr />
+<p>Name: <input type="text" name="name" placeholder="your full public name" onkeyup="updatename(this);" />
+<br />Unique:
+<input type="text" name="uniq" size="46" placeholder="A unique description of you, people might remember well *" required="" onkeyup="updateuniq(this);" />
+<br />Zipcode: <input type="text" name="zip" onkeyup="updatezip(this);" /></p>
+
+<h3 id="your-addressable-identity-is--yid">Your addressable identity is : <em>yID</em>=<b>&lt;<span id="name"></span>;<span id="uniq"></span>@<span id="zip"></span>&gt;</b></h3>
+
+<p><input type="radio" name="check" required="" /> I undersigned, certify I am the person described here<br />
+and the information provided are exact and true.<br />
+signature <input type="password" name="sig" required="" /></p>
+
+<hr />
+<h3 id="contact-information-">Contact information :</h3>
+
+<p>Tel: <input type="tel" name="phone" size="14" /><br />
+email: <input type="email" name="email" /></p>
+
+<p>Additional information for lost ID recovery (optional)<br />
+DoB: <input type="date" name="dob" /><br />
+PoB: <input type="name" name="pob" placeholder="Place of Birth" /><br />
+SSN: <input type="SSN" name="ssn" placeholder="last 4 digit of your SSN" /></p>
+
+<p><input type="button" value="register" /></p>
+
+</form></div>
+
+<script>
+var trans = { 'à':'a','é':'e','è':'e','ç':'c' };
+function updatename(name) {
+   e = document.getElementById("name");
+   e.innerHTML = name.value.replace(/[\!"£$%^&\)\(*+_={};:'@#~,.Š\/<>\" "\?|`¬\]\[]+/g,'-');
+}
+function updateuniq(uniq) {
+   e = document.getElementById("uniq");
+   var str = uniq.value.replace(/[àéèç]/g, function (x) { return trans[x]; } );
+   e.innerHTML = str.replace(/[\!"£$%^&\)\(*+_={};:'@#~,.Š\/<>\" "\?|`¬\]\[]+/g,'-');
+}
+function updatezip(zip) {
+   e = document.getElementById("zip");
+   var str = zip.value.replace(/[àéèç]/g, function (x) { return trans[x]; } );
+   e.innerHTML = str.replace(/[\!"£$%^&\)\(*+_={};:'@#~,.Š\/<>\" "\?|`¬\]\[]/g,'-');
+}
+
+ var form = document.getElementsByTagName('form')[0];
+ console.dir(form)
+</script>

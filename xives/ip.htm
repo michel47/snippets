@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="latin1"/>
+<div>
+<!--
+ returns the client IP address ...
+ see also [*](https://stackoverflow.com/questions/391979/how-to-get-clients-ip-address-using-javascript/35123097#35123097)
+-->
+<p>
+ip: <a href="#" class=ip>&lt;ip&gt;</a>
+<br>info: <span id="info">more info ...</span>
+</p>
+</div>
+
+<script>
+  
+  function getj(url) {
+    fetch(url)
+    .then( resp => resp.json() )
+    .then( function(obj) {
+       var elems = document.getElementsByClassName('ip');
+       for(var i=0; i<elems.length; i++) {
+         if (typeof elems[i].href != 'undefined') {
+           elems[i].href = 'http://'+ obj['ip'] +'/';
+         }
+         elems[i].innerHTML = obj['ip'];
+
+       }
+     }
+    ).catch(e => console.log(e));
+  }
+
+  getj('https://api.ipify.org/?format=json');
+
+</script>
+
+<script>
+  function info(obj) {
+    console.log(obj);
+    var ip= obj['geobytesremoteip'];
+    document.getElementById('info').innerHTML = JSON.stringify(obj);
+  }
+</script>
+<script src='http://gd.geobytes.com/GetCityDetails?callback=info'></script>
+
+
