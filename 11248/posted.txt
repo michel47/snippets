@@ -1,5 +1,5 @@
 ---
-title: Post a note (#PaN): QmQiQni on 05/05/20 
+title: Post a note (#PaN): QmSicMV on 05/05/20 
 subtitle: a note from michelc 
 preview: envelop.jpg
 bgimg: water.jpg
@@ -7,11 +7,11 @@ hero: books.jpg
 thumbnail: notes.jpg
 ---
 ![stamp](img/poststamp.png)
-QmQiQni PaN*ote* on 05/05/20
+QmSicMV PaN*ote* on 05/05/20
 
-a note is posted at [QmQiQni] @06:37:01
+a note is posted at [QmSicMV] @23:24:29
 
 --&nbsp;<br>
-~michelc (https://.com:8080/ipfs/QmdsmhwZUwV66PWbjMFiKp93AzJceqcPZFrKh5TmSycxdp)
+~michelc (https://yoogle.com:8080/ipfs/QmSicMVhizFuFfZ93KJruZ9zZm5eXkEogtQhgp8D92iK1n)
 
-[QmQiQni]: https://gateway.ipfs.io/ipfs/QmdsmhwZUwV66PWbjMFiKp93AzJceqcPZFrKh5TmSycxdp
+[QmSicMV]: https://gateway.ipfs.io/ipfs/QmSicMVhizFuFfZ93KJruZ9zZm5eXkEogtQhgp8D92iK1n

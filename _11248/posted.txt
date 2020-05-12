@@ -1,5 +1,5 @@
 ---
-title: Post a note (#PaN):  on 04/20/20 
+title: Post a note (#PaN):  on 05/05/20 
 subtitle: a note from michelc 
 preview: envelop.jpg
 bgimg: water.jpg
@@ -7,11 +7,11 @@ hero: books.jpg
 thumbnail: notes.jpg
 ---
 ![stamp](img/poststamp.png)
- PaN*ote* on 04/20/20
+ PaN*ote* on 05/05/20
 
-a note is posted at [] @21:48:29
+a note is posted at [] @07:00:28
 
 --&nbsp;<br>
-~michelc (https://.com:8080/ipfs/QmNfS7dYUz5VvUrCcGMJJUJbsneZpKYZFD6Mi3gH6bC2nX)
+~michelc (https://.com:8080/ipfs/QmQcksQdvV2fU1bCfaq19ALtteWi53hiwYaYpRapJnxfsH)
 
-[]: https://gateway.ipfs.io/ipfs/QmNfS7dYUz5VvUrCcGMJJUJbsneZpKYZFD6Mi3gH6bC2nX
+[]: https://gateway.ipfs.io/ipfs/QmQcksQdvV2fU1bCfaq19ALtteWi53hiwYaYpRapJnxfsH
