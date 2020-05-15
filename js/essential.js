@@ -383,7 +383,7 @@ function logError(what,err,obj) {
     msg = 'Error '+err
     console.error(what+': '+err,obj);
   }
-  e = document.getElementByID('error')
+  e = document.getElementById('error')
   if (e) {
     e.innerHTML = msg
   }
