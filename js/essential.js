@@ -1,6 +1,14 @@
 // some useful js functions...
 //
 console.log('essential.js: 1.1')
+thisscript = document.currentScript
+
+// test if experimental ...
+if (thisscript.className.match('exp')) {
+  thisscript.src = thisscript.src.replace('https://.*\.github.com/','../')
+  console.log('src: '+thisscript.src)
+}
+
 
 function load(e) {
     //console.log('load: ',e); 
