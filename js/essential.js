@@ -103,7 +103,7 @@ function fetchRespCatch(url,data) {
     .then(validateResp)
     .catch(consErr('fetchRespCatch.obj'))
   } else {
-    return fetchGetResp(url)
+    return fetchGetPostResp(url)
     .then(validateResp)
     .catch(consErr('fetchRespCatch.obj'))
   }
@@ -114,7 +114,7 @@ function fetchRespNoCatch(url,data) {
     .then(validateRespNoCatch)
     .catch(consLog('!! fetchRespNoCatch.postcatch.obj'))
   } else {
-    return fetchGetResp(url)
+    return fetchGetPostResp(url)
     .then(validateRespNoCatch)
     .catch(consLog('!! fetchRespNoCatch.getcatch.obj'))
   }
