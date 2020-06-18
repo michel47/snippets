@@ -139,7 +139,7 @@ function validateRespNoCatch(resp) { // validate: OK ? text : json
          resp.json() // errors are in json format
          .then( json => {
            if (typeof(json.Code) != 'undefined') {
-             console.error('validateResp.'+json.Type+': ',json.Code,json.Message)
+             console.log('validateResp.'+json.Type+': ',json.Code,json.Message)
            }
            return json;
        }));
