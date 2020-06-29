@@ -384,6 +384,63 @@ function replaceInTagsByClassName(name,value) {
    }
 }
 
+function functionNameJS () {
+   let stack = new Error().stack;
+
+//    console.log('functionNameJS.stack:',stack);
+
+    var callee;
+    var caller;
+    var stackArray= [];
+    let navigator = navigatorName();
+    switch (navigator){
+    case "Chrome":
+  stackArray = stack.split('at ');
+  callee = stackArray[2].split(' ')[0];
+  if (stackArray[3] == undefined) {
+      caller = "main";
+  }
+  else{
+      caller = stackArray[3].split(' ')[0];
+  }
+  if(caller.match("http:")){caller = "main"};
+  break;
+
+    case "Firefox":
+  stackArray = stack.split('\n');
+  callee = stackArray[1].split('@')[0];
+  caller = stackArray[2].split('@')[0];
+  if (caller == "") {caller = "main"};
+  break;
+
+    default:
+  console.error('functionNameJS.navigator',navigator);
+  throw "unknown navigator "+navigator;
+    } // switch
+
+    return [callee, caller];
+}
+
+function navigatorName () {
+    let navNam = navigator.userAgent;
+//    console.log('navigatorName.navNam',navNam);
+
+    var result = "";
+    if(navNam.match("Firefox")){
+  result = "Firefox";
+    }
+    else if(navNam.match("Chrome")){
+  result = "Chrome";
+    }
+    else {
+  throw "Error in navigatorName.unknown navigator "+navNam;
+    }
+//    console.log('navigatorName.result',result);
+    return result;
+}
+
+
+
 function consLog(what) { return data => { console.log(what+': ',data); return data; } }
 function consErr(what) { return err => { console.error(what+': ',err); return err; } }
 
