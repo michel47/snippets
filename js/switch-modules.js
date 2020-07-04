@@ -8,7 +8,7 @@
 thisscript = document.currentScript
 let src = thisscript.src
 
-thisscript.version = '1.1';
+thisscript.version = '1.2';
 thisscript.name = src.replace(RegExp('.*/([^/]+)$'),"$1")
 console.log(thisscript.name+': '+thisscript.version)
 
@@ -18,7 +18,7 @@ if (thisscript.className.match('exp')) {
 
   console.dir(thisscript)
 
-  src = src.replace(RegExp('.*/github.com/'),'../')
+  src = src.replace(RegExp('.*/github.io/'),'../')
   console.log('oldsrc: '+thisscript.src)
   console.log('newsrc: '+src)
   thisscript.src = src
