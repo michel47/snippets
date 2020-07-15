@@ -394,28 +394,28 @@ function functionNameJS () {
     var stackArray= [];
     let navigator = navigatorName();
     switch (navigator){
-    case "Chrome":
-  stackArray = stack.split('at ');
-  callee = stackArray[2].split(' ')[0];
-  if (stackArray[3] == undefined) {
-      caller = "main";
-  }
-  else{
-      caller = stackArray[3].split(' ')[0];
-  }
-  if(caller.match("http:")){caller = "main"};
-  break;
+       case "Chrome":
+          stackArray = stack.split('at ');
+          callee = stackArray[2].split(' ')[0];
+          if (stackArray[3] == undefined) {
+             caller = "main";
+          }
+          else{
+             caller = stackArray[3].split(' ')[0];
+          }
+          if(caller.match("http:")){caller = "main"};
+          break;
 
-    case "Firefox":
-  stackArray = stack.split('\n');
-  callee = stackArray[1].split('@')[0];
-  caller = stackArray[2].split('@')[0];
-  if (caller == "") {caller = "main"};
-  break;
+       case "Firefox":
+          stackArray = stack.split('\n');
+          callee = stackArray[1].split('@')[0];
+          caller = stackArray[2].split('@')[0];
+          if (caller == "") {caller = "main"};
+          break;
 
-    default:
-  console.error('functionNameJS.navigator',navigator);
-  throw "unknown navigator "+navigator;
+       default:
+          console.error('functionNameJS.navigator',navigator);
+          throw "unknown navigator "+navigator;
     } // switch
 
     return [callee, caller];
@@ -444,6 +444,11 @@ function navigatorName () {
 function consLog(what) { return data => { console.log(what+': ',data); return data; } }
 function consErr(what) { return err => { console.error(what+': ',err); return err; } }
 
+function logInfo(msg) {
+   let stack = new Error().stack;
+   console.log('info: ',msg,stack)
+}
+
 function logError(what,err,obj) {
   let errorMsg = {
     '-1':'Unknown Error'
@@ -466,5 +471,27 @@ function logError(what,err,obj) {
   }
   return msg;
 }
+
+function isErr(err, callback) {
+   if (err != null) {
+      if (err.stack != null) {
+         var stackArray = err.stack.split("\n");
+         var stackLine = new Error().stack.split("\n")[2];
+         stackArray.splice(1,0,StackLine); 
+         err.stack = stackArry.join("\n");
+      } else {
+         err = new Error(err);
+      }
+
+      if (callback != null) {
+         callback(err);
+      } else {
+         throw err;
+      }
+      return true;
+   } else {
+      return false;
+   }
+} 
 
 true; // $Source:  /my/js/scripts/essential.js$
