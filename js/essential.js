@@ -1,6 +1,9 @@
 // some useful js functions...
 //
-console.log('essential.js: 1.1')
+window.essential = { 'version' : '1.1' };
+console.log('essential.js: '+window.essential.version)
+
+function TBD(m) { alert('TBD:'+m) }
 
 function load(e) {
     //console.log('load: ',e); 
